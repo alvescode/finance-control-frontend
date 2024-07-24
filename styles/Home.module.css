@@ -1,0 +1,89 @@
+.homeBody {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  width: 400px;
+}
+
+.logoContainer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+  border-radius: 30px;
+}
+
+.logoContainer h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0 0 0;
+}
+
+.formContainer {
+  width: 100%;
+}
+
+.formContent h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.homeButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #1E90FF;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+
+.homeButton:hover {
+  background-color: #1c86ee;
+}
+
+.p {
+  text-align: center;
+  color: #666;
+}
+
+.switch {
+  color: #1E90FF;
+  cursor: pointer;
+}
