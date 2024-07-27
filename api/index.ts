@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
-const api = axios.create({
+const api: AxiosInstance = axios.create({
   baseURL: "http://localhost:3001/",
   timeout: 5000,
   headers: {
@@ -16,7 +16,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error: any): Promise<any> => Promise.reject(error)
 );
 
 export default api;
