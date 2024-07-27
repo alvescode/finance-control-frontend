@@ -24,14 +24,17 @@ const Home: React.FC = () => {
   const addTransaction = async (transaction) => {
     setTransactions([...transactions, transaction]);
     await api.post("/expense/register", transaction);
+    const response = await api.get("/expense/view");
+    setTransactions(response.data);
   };
 
   const editTransaction = async (expenseId, updatedTransaction) => {
     try {
-      await api.put(`/expense/edit/${expenseId}`, updatedTransaction);
       const updatedTransactions = transactions.map((trans) =>
         trans.id === expenseId ? updatedTransaction : trans
       );
+      await api.put(`/expense/edit/${expenseId}`, updatedTransaction);
+
       setTransactions(updatedTransactions);
     } catch (error) {
       console.log("Erro:", error);

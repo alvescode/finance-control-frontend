@@ -9,7 +9,7 @@ export default function RegisterForm({ switchForm }) {
     password: "",
     name: "",
   });
-
+  const [erroCadastro, setErroCadastro] = useState<string | null>(null);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -27,6 +27,9 @@ export default function RegisterForm({ switchForm }) {
       localStorage.setItem("finance-control-jwt", data.token);
       router.push("/dashboard");
     } catch (error) {
+      if (error.response.data.message === "Email já está em uso") {
+        setErroCadastro(error.response.data.message);
+      }
       console.log("Erro na conexão com o server, erro: ", error);
     }
   };
@@ -64,6 +67,9 @@ export default function RegisterForm({ switchForm }) {
             required
           />
         </div>
+        {erroCadastro ? (
+          <p style={{ color: "red", marginBottom: "10px" }}>{erroCadastro}</p>
+        ) : null}
         <button type="submit" className={styles.homeButton}>
           Cadastrar
         </button>
