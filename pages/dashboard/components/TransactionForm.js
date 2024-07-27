@@ -5,7 +5,7 @@ const TransactionForm = ({ addTransaction }) => {
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
-  const [isIncome, setIsIncome] = useState("Receita");
+  const [isIncome, setIsIncome] = useState("1");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ const TransactionForm = ({ addTransaction }) => {
     setDescription("");
     setValue("");
     setCategory("");
-    setIsIncome("Receita");
+    setIsIncome("1");
   };
 
   return (
@@ -56,8 +56,8 @@ const TransactionForm = ({ addTransaction }) => {
           value={isIncome}
           onChange={(e) => setIsIncome(e.target.value)}
         >
-          <option value="Receita">Receita</option>
-          <option value="Despesa">Despesa</option>
+          <option value="1">Receita</option>
+          <option value="0">Despesa</option>
         </select>
       </div>
       <button className={styles.button} type="submit">

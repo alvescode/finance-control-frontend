@@ -11,7 +11,7 @@ const TransactionList = ({
   const [editDescription, setEditDescription] = useState("");
   const [editValue, setEditValue] = useState("");
   const [editCategory, setEditCategory] = useState("");
-  const [editIsIncome, setEditIsIncome] = useState("Receita"); //edit
+  const [editIsIncome, setEditIsIncome] = useState("1");
 
   const handleEdit = (index) => {
     setEditIndex(index);
@@ -62,8 +62,8 @@ const TransactionList = ({
                   value={editIsIncome}
                   onChange={(e) => setEditIsIncome(e.target.value)}
                 >
-                  <option value="Receita">Receita</option>
-                  <option value="Despesa">Despesa</option>
+                  <option value="1">Receita</option>
+                  <option value="0">Despesa</option>
                 </select>
                 <button
                   className={styles.buttonSecondary}
@@ -83,7 +83,7 @@ const TransactionList = ({
                 <span>
                   {transaction.description} - {transaction.value} -{" "}
                   {transaction.category} -{" "}
-                  {transaction.isIncome == 1 ? "Receita" : "Despesa"}
+                  {transaction.isIncome == "1" ? "Receita" : "Despesa"}
                 </span>
                 <div className={styles.listItemContent}>
                   <button

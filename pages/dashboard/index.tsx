@@ -1,19 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import styles from "../../styles/Dashboard.module.css";
 import api from "../../api/index";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 
-const Home = () => {
+const Home: React.FC = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
         const response = await api.get("/expense/view");
-        console.log(response);
         setTransactions(response.data);
       } catch (error) {
         console.error("Erro ao buscar despesas:", error);
@@ -24,16 +22,14 @@ const Home = () => {
   }, []);
 
   const addTransaction = async (transaction) => {
-    console.log("transaction nova ", transaction);
     setTransactions([...transactions, transaction]);
     await api.post("/expense/register", transaction);
   };
 
   const editTransaction = async (expenseId, updatedTransaction) => {
-    console.log("surto", expenseId, updatedTransaction);
     try {
       await api.put(`/expense/edit/${expenseId}`, updatedTransaction);
-      const updatedTransactions = transactions.map((trans, i) =>
+      const updatedTransactions = transactions.map((trans) =>
         trans.id === expenseId ? updatedTransaction : trans
       );
       setTransactions(updatedTransactions);
@@ -63,6 +59,7 @@ const Home = () => {
       throw error;
     }
   };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Controle de Finanças Pessoais</h1>
